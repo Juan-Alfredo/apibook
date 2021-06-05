@@ -1,0 +1,36 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+    <table boder="1" class="table"> 
+
+        <tr>
+            <th>ID</th>
+            <th>first_name</th>
+            <th>last_name</th>
+            <th>nationalit</th>
+            <th>genere</th>
+        </tr>
+        {% for author in object_list %}
+            <tr>
+                <td>{{ author.id }}</td>
+                <td>{{ author.first_name }}</td>
+                <td>{{ author.last_name }}</code></td>
+                <td>{{ author.nationality }}</td>
+                <td>{{ author.genere }}</td>
+                <td>
+                    <a href ="/catalog/{{book.editorial}}/books">
+                        {{book.editorial | upper }}
+                    </a>
+                </td>
+                <td>{{ book.year | add:"2" }}</td>
+                <td>
+                    <a class="btn btn-sm btn-info" 
+                        href="/book/{{book.id}}">
+                        Editar
+                    </a>
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
+{% endblock %}
